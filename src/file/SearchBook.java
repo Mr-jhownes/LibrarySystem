@@ -38,6 +38,7 @@ public class SearchBook {
                     recordBook.get(i).getAvailability());
             	}
             }
+	      
 	      System.out.println("");
 	      
 	        }

@@ -1,8 +1,8 @@
 1,The Outsider,Stephen King,2018,available
-2,The Shinning,Stephen King,1977,available
+2,The Shinning,Stephen King,1977,borrowed
 3,The Raven,Allan Poe,1845,available
 4,Murder on the Orient Express,Agatha Christie,1934,available
-5,Death on the nile,Agatha Christie,1937,available
+5,Death on the nile,Agatha Christie,1937,borrowed
 6,Leaves and Grass,Walt Whitman,1855,available
 7,Turma da Monica,Mauricio de Souza,1989,available
 8,The silver Linings Playbook,Matthew Quick,2008,available

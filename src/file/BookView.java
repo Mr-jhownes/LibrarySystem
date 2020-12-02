@@ -12,7 +12,7 @@ import readerSession.SearchReader;
  */
 public class BookView {
 	// this method has the recordBook with all the data
-	public BookView(ArrayList<Books> recordBook, ArrayList<Reader> records) {
+	public BookView(ArrayList<Books> recordBook) {
 
 		// scanner to take input from user 
 		Scanner options = new Scanner(System.in);
@@ -48,19 +48,19 @@ public class BookView {
 		//statement to react for each of the options given to user
 		if(select == 1) {
 			
-			BookList listTitle = new BookList();
+			BookSorted listTitle = new BookSorted();
 			listTitle.bookSortedTitle(recordBook);
 			System.out.println("");
-			new BookView(recordBook, records);
+			new BookView(recordBook);
 		 
 		}
 		
 		else if(select == 2) {
 			
-			BookList listAuthor = new BookList();
+			BookSorted listAuthor = new BookSorted();
 			listAuthor.bookSortedAuthor(recordBook);
 			System.out.println("");
-			new BookView(recordBook, records);
+			new BookView(recordBook);
 		 
 		}
 		// if number 3 open the SearchBook class sending the parameters take from user and the recordBook array list
@@ -70,12 +70,13 @@ public class BookView {
 			
 			new SearchBook(recordBook, name);
 			
-			new BookView(recordBook, records);
+			new BookView(recordBook);
 			
 		}
 		else if(select == 4) {
 			
-			new Display (records, recordBook);
+			//new Display (records, recordBook, recordBorrow );
+			new Main();
 	}
 	
 		}catch(Exception e) {

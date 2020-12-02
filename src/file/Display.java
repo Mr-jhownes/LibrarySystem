@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import readerSession.Reader;
-import readerSession.readerView;
+import readerSession.ReaderView;
 
 
 /**
@@ -13,7 +13,7 @@ import readerSession.readerView;
 public class Display {
 
 	
-	public Display(ArrayList<Reader> records, ArrayList<Books> recordBook) { 
+	public Display(ArrayList<Reader> records, ArrayList<Books> recordBook, ArrayList<Borrowed> recordBorrow) { 
 	
 		
 	
@@ -34,34 +34,37 @@ public class Display {
 		System.out.println("Type your option:");
 		System.out.println("1 - Book Options");
 		System.out.println("2 - Reader options");
+		System.out.println("3 - Borrowing options");
+		
 		
 		
 	
 		 while(!option.hasNextInt()) {
 			
-			System.out.println("Please enter 1 for Books or 2 for Readers 2");
+			System.out.println("Please enter 1 for Books, 2 for Readers ");
 			option.next();
 			
 		}
 		
 		 selected = option.nextInt();
 			
-		}while(selected != 1 && selected != 2);
-		
-		
-		
-		
+		}while(selected != 1 && selected != 2 && selected != 3);
+	
 		if(selected == 1) {
 			
-			new BookView(recordBook, records);
-			
+			new BookView(recordBook);
 			
 		}
 		else if(selected == 2) {
 			
-			new readerView(records, recordBook);
+			new ReaderView(records);
+		}
+		else if(selected == 3) {
+			
+			new BorrowView(recordBorrow, records, recordBook);
 		}
 		
+			
 		}catch (Exception e) {
 			System.out.println("something went wrong");
 		}

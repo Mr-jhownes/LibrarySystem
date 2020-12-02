@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author Jonathan
  *
  */
-public class BookList {
+public class BookSorted {
 
 	/**
 	 * @param recordBook

@@ -18,16 +18,27 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
+		new Main();
+		
+	}
+	
+	public Main() {
+		
 	//loading the data when running the program
 		ArrayList<Reader> records = new ArrayList<Reader>();
 		ArrayList<Books> recordBook = new ArrayList<Books>();
+		ArrayList<Borrowed> recordBorrow = new ArrayList<Borrowed>();
 		
 		//executing the methods
 		readerList(records);
 		booksList(recordBook);
+		borrowList(recordBorrow);
+		
+		//
+		System.out.println(recordBorrow);
 		
 		//after the load is done send them to the Display class
-		new Display(records, recordBook);
+		new Display(records, recordBook, recordBorrow);
 		
 	}
 	//taking data from the text file and putting into the array list
@@ -109,6 +120,45 @@ try {
         
       		
 		return recordBook;
+		
+	}
+	
+	public static ArrayList<Borrowed> borrowList(ArrayList<Borrowed>recordBorrow){
+		
+		try {
+        	//reading the file
+            BufferedReader borrowFile = new BufferedReader(new FileReader("borrow.txt"));
+            String contentLine = borrowFile.readLine();
+            
+            String[] data;
+            int id;
+            String reader;
+            String title;
+            String availability;
+           
+            
+            
+            while (contentLine != null) {
+                //inserting the content into array
+                data = contentLine.split(",");
+                id = Integer.parseInt(data[0]);
+                reader = data[1];
+                title = data[2];
+                availability = data[3];
+                
+                
+                //adding using the class getBooks
+                recordBorrow.add(new Borrowed(id, reader, title, availability));
+                contentLine = borrowFile.readLine();
+                
+                
+            }
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+		
+		return recordBorrow;
 		
 	}
 	
