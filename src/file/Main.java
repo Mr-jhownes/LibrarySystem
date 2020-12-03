@@ -9,6 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import readerSession.Reader;
+import view.Display;
 
 /**
  * @author Jonathan Santos
@@ -28,19 +29,60 @@ public class Main {
 		ArrayList<Reader> records = new ArrayList<Reader>();
 		ArrayList<Books> recordBook = new ArrayList<Books>();
 		ArrayList<Borrowed> recordBorrow = new ArrayList<Borrowed>();
+		ArrayList<Returned> recordReturned = new ArrayList<Returned>();
 		
-		//executing the methods
+ 		//executing the methods
 		readerList(records);
 		booksList(recordBook);
 		borrowList(recordBorrow);
+		returnedList(recordReturned);
 		
 		//
 		System.out.println(recordBorrow);
 		
 		//after the load is done send them to the Display class
-		new Display(records, recordBook, recordBorrow);
+		new Display(records, recordBook, recordBorrow, recordReturned);
 		
 	}
+	/**
+	 * @param recordReturned
+	 * @return 
+	 */
+	private ArrayList<Returned> returnedList(ArrayList<Returned> recordReturned) {
+		 
+        try {
+        	
+            BufferedReader br = new BufferedReader(new FileReader("returned.txt"));
+            String contentLine = br.readLine();
+            //variables to store the data
+            String[] data;
+            int id;
+            String reader;
+            String title;
+            
+            
+            while (contentLine != null) {
+                
+                data = contentLine.split(",");
+                id = Integer.parseInt(data[0]);
+                reader = data[1];
+                title = data[2];
+              
+                // adding the record to class getReader which will handle them
+                recordReturned.add(new Returned(id, reader,title));
+                contentLine = br.readLine();
+                
+                
+            }
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return recordReturned;
+		
+	}
+
 	//taking data from the text file and putting into the array list
 	public static ArrayList<Reader> readerList(ArrayList<Reader>records) {
         
@@ -95,7 +137,7 @@ try {
             String title;
             String author;
             int year;
-            String availability;
+            
             
             
             while (contentLine != null) {
@@ -105,10 +147,10 @@ try {
                 title = data[1];
                 author = data[2];
                 year = Integer.parseInt(data[3]);
-                availability = data[4];
+                
                 
                 //adding using the class getBooks
-                recordBook.add(new Books(id, title, author, year, availability));
+                recordBook.add(new Books(id, title, author, year));
                 contentLine = bookFile.readLine();
                 
                 

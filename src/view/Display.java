@@ -1,7 +1,12 @@
-package file;
+package view;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import file.BookView;
+import file.Books;
+import file.BorrowView;
+import file.Borrowed;
+import file.Returned;
 import readerSession.Reader;
 import readerSession.ReaderView;
 
@@ -13,7 +18,7 @@ import readerSession.ReaderView;
 public class Display {
 
 	
-	public Display(ArrayList<Reader> records, ArrayList<Books> recordBook, ArrayList<Borrowed> recordBorrow) { 
+	public Display(ArrayList<Reader> records, ArrayList<Books> recordBook, ArrayList<Borrowed> recordBorrow, ArrayList<Returned> recordReturned) { 
 	
 		
 	
@@ -61,7 +66,7 @@ public class Display {
 		}
 		else if(selected == 3) {
 			
-			new BorrowView(recordBorrow, records, recordBook);
+			new BorrowView(recordBorrow, records, recordBook, recordReturned);
 		}
 		
 			

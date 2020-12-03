@@ -26,6 +26,7 @@ public class SearchReader {
 	//method which will receive the record from reader, and taking the input from the user
 	public void search(ArrayList<Reader> recordReader, String name) {
         
+		String nameSearch = "empty";
 		
 		System.out.println("Result:");
     	
@@ -36,6 +37,7 @@ public class SearchReader {
            //As it is possible to have a user with the same name the loop is running till the end, making sure to get every reader
             if(recordReader.get(i).getName().equalsIgnoreCase(name)){
                
+            nameSearch = recordReader.get(i).getName();
             	//printing all the information using get from getReader
             	System.out.println("ID:" + recordReader.get(i).getId() + ", " +
             			recordReader.get(i).getName()  + " " +
@@ -54,9 +56,11 @@ public class SearchReader {
             	
             }
         }
+      	
+      if(nameSearch.equals("empty")) {
        //by the end of the loop the program will return to the readerView
-      			System.out.println("");
-      			
+      			System.out.println("**Reader not found** \n");
+      }	
       	
       
     }

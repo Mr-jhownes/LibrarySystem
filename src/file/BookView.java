@@ -65,7 +65,9 @@ public class BookView {
 		}
 		// if number 3 open the SearchBook class sending the parameters take from user and the recordBook array list
 		else if(select == 3){
+			
 			System.out.println("Enter the Title or the name of the author:");
+			
 			name = names.nextLine();
 			
 			new SearchBook(recordBook, name);

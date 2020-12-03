@@ -10,15 +10,15 @@ public class Books {
     private String title;
     private String author;
     private int year;
-    private String availability;
     
-    public Books(int id,String title, String author, int year, String availability) {
+    
+    public Books(int id,String title, String author, int year) {
     	
     	this.id = id;
     	this.title = title;
     	this.author = author;
     	this.year = year;
-    	this.availability = availability;
+  
     	
     }
 
@@ -37,9 +37,7 @@ public class Books {
 	public int getYear() {
 		return year;
 	}
-	public String getAvailability() {
-		return availability;
-	}
+	
     
 	@Override
 	public String toString() {

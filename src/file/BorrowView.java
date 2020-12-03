@@ -14,7 +14,7 @@ import readerSession.SearchReader;
  */
 public class BorrowView {
 
-	public BorrowView(ArrayList<Borrowed> recordBorrow, ArrayList<Reader> records, ArrayList<Books> recordBook) {
+	public BorrowView(ArrayList<Borrowed> recordBorrow, ArrayList<Reader> records, ArrayList<Books> recordBook, ArrayList<Returned> recordReturned) {
 		
 		//scanner to take the inputs
 		Scanner options = new Scanner(System.in);
@@ -30,8 +30,8 @@ public class BorrowView {
 		do {
 			System.out.println("--Borrowing Session--");
 			System.out.println("1 - Register borrowing book");
-			System.out.println("2 - List all the books borrowed");
-			System.out.println("3 - Search reader by name");
+			System.out.println("2 - Register book returned");
+			System.out.println("3 - List books of a reader");
 			System.out.println(("4 - Return to menu"));
 				
 		while(!options.hasNextInt()) {
@@ -52,20 +52,27 @@ public class BorrowView {
 			
 		else if(selected == 2) {
 				
-			ReaderSorted alpha = new ReaderSorted();
-			alpha.readerSortedAlphabetical(records);
-			new ReaderView(records);
-					
+			
+			new registerReturn(recordBorrow);		
 				 		 
 			}
-//		else if(selected == 3){
-//			System.out.println("Enter the name or surname of the user:");
-//			name = names.nextLine();
-//					
-//			new SearchReader(records, name);
-//			new ReaderView(records);
-//					
-//			}
+		else if(selected == 3){
+			
+			System.out.println("Enter the ID of the reader:");
+			
+			while(!readerId.hasNextInt()) {
+				System.out.println("Please only enter numbers for IDs");
+			}
+			id = readerId.nextInt();
+			
+			new ReaderBooks(recordReturned, id);
+			
+			new BookView(recordBook);
+			
+			
+			
+					
+			}
 		else if(selected == 4) {
 					
 			new Main();

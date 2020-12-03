@@ -1,3 +1,2 @@
 1,Joaquin,text,borrowed
-2,Cersey baratheon,Murder on the Orient Express,borrowed
-2,Cersey baratheon,The Shinning,borrowed
+3,Joffrey stannis,Murder on the Orient Express,borrowed

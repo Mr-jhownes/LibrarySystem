@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import file.Books;
-import file.Display;
 import file.Main;
+import view.Display;
 /**
  * @author Jonathan Santos
  *

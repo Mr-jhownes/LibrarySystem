@@ -34,8 +34,8 @@ public class SearchBook {
             else if(recordBook.get(i).getTitle().contains(name)) {
             		System.out.println("ID:" + recordBook.get(i).getId() + ", " + 
                     recordBook.get(i).getTitle() + ", " + 
-            		recordBook.get(i).getAuthor() + ", " + 
-                    recordBook.get(i).getAvailability());
+            		recordBook.get(i).getAuthor());
+                    
             	}
             }
 	      
